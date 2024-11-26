@@ -1,4 +1,4 @@
-<nav class="bg-[#00ADB5] p-4 mb-2 rounded-lg">
+<nav class="bg-[##ffffff] p-4 mb-2 rounded-lg">
     <div class="flex items-center justify-between">
         <div class="md:hidden">
             <button id="menu-toggle" aria-expanded="false" class="text-[#222831] focus:outline-none">

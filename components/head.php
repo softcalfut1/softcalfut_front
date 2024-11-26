@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4CAF50">
-    <script src="js/taildwind-3.4.5.js"></script>
-    <link href="css/tailwind.min.css" rel="stylesheet">
+    <script src="../src/js/taildwind-3.4.5.js"></script>
+    <link href="../src/style/tailwind.min.css" rel="stylesheet">
     <link rel="manifest" href="../manifest.json">
     <title><?php echo htmlspecialchars($titleHead); ?></title>
     <style>
