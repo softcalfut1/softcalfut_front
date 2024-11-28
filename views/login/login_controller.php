@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once 'Database.php';
+require_once '../../controller/Database.php';
 
 // Verificamos si los datos fueron enviados por POST
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {

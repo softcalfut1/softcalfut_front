@@ -1,5 +1,5 @@
 <?php
-require_once 'Database.php';
+require_once '../../controller/Database.php';
 
 // Verificar si se pasa el 'documento' por URL para eliminar el usuario
 if (isset($_GET['documento'])) {

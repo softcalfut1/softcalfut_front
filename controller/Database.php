@@ -1,6 +1,6 @@
 <?php
 // Cargar las variables de entorno desde el archivo .env
-require_once __DIR__ . '/../../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 use Dotenv\Dotenv;
 
@@ -69,7 +69,6 @@ class Database {
             echo "<script>swal('Error', 'Error al insertar el registro: " . $e->getMessage() . "', 'error');</script>";
         }
     }
-    
 
     // Método para leer datos
     public function leer($tabla, $condiciones = "") {
@@ -123,7 +122,6 @@ class Database {
             echo "<script>swal('Error', 'Error al actualizar el registro: " . $e->getMessage() . "', 'error');</script>";
         }
     }
-    
 
     // Método para eliminar datos
     public function eliminar($tabla, $condicion) {
@@ -139,6 +137,47 @@ class Database {
         } catch (Exception $e) {
             echo "<script>swal('Error', 'Error al eliminar el registro: " . $e->getMessage() . "', 'error');</script>";
         }
+    }
+
+    // Método para validar usuario con documento y contraseña
+    public function validarUsuario($documento, $pass) {
+        // Consultamos el usuario por documento
+        $sql = "SELECT u.documento, u.nombres, u.apellido, u.email, u.id_rol, u.pass, r.nombre as rol_nombre, r.descripcion as rol_descripcion
+                FROM usuario u
+                JOIN rol r ON u.id_rol = r.id
+                WHERE u.documento = '$documento' AND u.estado = 1"; 
+
+        $result = pg_query($this->conn, $sql);
+
+        if ($result) {
+            if ($row = pg_fetch_assoc($result)) {
+                // Verificamos si la contraseña ingresada coincide con el hash almacenado
+                if (password_verify($pass, $row['pass'])) {
+                    // La contraseña es correcta, retornamos los datos del usuario
+                    return $row;
+                } else {
+                    // La contraseña no es correcta
+                    return false;
+                }
+            }
+        }
+        return false;
+    }
+
+
+    // Método para obtener los permisos del usuario
+    public function obtenerPermisos($id_rol) {
+        $sql = "SELECT p.nombre as permiso_nombre, p.descripcion as permiso_descripcion
+                FROM permiso p
+                JOIN rolxpermiso rp ON rp.id_permiso = p.id
+                WHERE rp.id_rol = $id_rol";
+
+        $result = pg_query($this->conn, $sql);
+        
+        if ($result) {
+            return pg_fetch_all($result);
+        }
+        return [];
     }
 
     // Cerrar la conexión

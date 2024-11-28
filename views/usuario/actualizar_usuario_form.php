@@ -3,7 +3,7 @@
 session_start();
 
 // Incluir la clase de la base de datos
-require_once 'Database.php'; // Ajusta esta ruta según corresponda
+require_once '../../controller/Database.php'; // Ajusta esta ruta según corresponda
 
 // Incluir el formulario
 include '../../components/formulario.php';

@@ -1,5 +1,5 @@
 <?php
-require_once 'Database.php';
+require_once '../../controller/Database.php';
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Recoger los valores del formulario

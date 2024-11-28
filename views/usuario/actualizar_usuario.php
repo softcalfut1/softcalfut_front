@@ -1,5 +1,5 @@
 <?php
-require_once 'Database.php';
+require_once '../../controller/Database.php';
 
 // Verificar si se ha pasado el 'documento' en la URL para cargar los datos del usuario
 if (isset($_GET['documento'])) {
