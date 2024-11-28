@@ -5,9 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4CAF50">
-    <script src="js/taildwind-3.4.5.js"></script>
-    <link href="css/tailwind.min.css" rel="stylesheet">
-    <link rel="manifest" href="../manifest.json">
+    <script src="../src/js/taildwind-3.4.5.js"></script>
+    <link href="../src/styles/tailwind.min.css" rel="stylesheet">
+    <!-- <link href="../src/styles/all.min.css" rel="stylesheet"> -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <title><?php echo htmlspecialchars($titleHead); ?></title>
     <style>
         /* Menú hamburguesa */
@@ -16,7 +17,6 @@
                 display: none;
             }
         }
-
 
         @media (max-width: 768px) {
             nav {

@@ -32,14 +32,9 @@
             event.preventDefault();
             const pedidoId = this.dataset.id; // Obtiene el ID del Pedido
             const eliminarLink = document.getElementById('eliminarConfirmado');
-            eliminarLink.setAttribute('href', `pedido/op_pedido_eliminar.php?id=${pedidoId}`);
+            // Cambia la URL del enlace para incluir el id del pedido
+            eliminarLink.setAttribute('href', `<?php echo $destino; ?>?id=${pedidoId}`);
             document.getElementById('modal').classList.remove('hidden');
-        });
-    });
-
-    document.querySelectorAll('#cerrarModal').forEach(button => {
-        button.addEventListener('click', function () {
-            document.getElementById('modal').classList.add('hidden');
         });
     });
 </script>
