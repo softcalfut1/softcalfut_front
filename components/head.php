@@ -1,3 +1,8 @@
+<?php
+// Definir la base URL de la aplicación
+define('BASE_URL', '/.');
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -5,9 +10,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#4CAF50">
-    <script src="../src/js/taildwind-3.4.5.js"></script>
-    <link href="../src/styles/tailwind.min.css" rel="stylesheet">
-    <!-- <link href="../src/styles/all.min.css" rel="stylesheet"> -->
+    <!-- Scripts y Estilos con rutas relativas a la raíz de la aplicación -->
+    <script src="<?php echo BASE_URL . '/src/js/taildwind-3.4.5.js'; ?>"></script>
+    <link href="<?php echo BASE_URL . '/src/styles/tailwind.min.css'; ?>" rel="stylesheet">
+    <script src="<?php echo BASE_URL . '/src/js/sweetalert2.js'; ?>"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <title><?php echo htmlspecialchars($titleHead); ?></title>
     <style>
