@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Redirigimos al usuario a la página de inicio
         $_SESSION['success'] = "Bienvenido " . $_SESSION['nombre'];
         echo $_SESSION['success'];
-        header('Location: inicio.php');
+        header('Location: ../../index.php');
         exit();
     } else {
         // Si no se encuentra al usuario o la contraseña es incorrecta
@@ -39,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 } else {
     // Si no se ha enviado el formulario
-    //header('Location: login.php');
+    header('Location: login.php');
     exit();
 }
 ?>

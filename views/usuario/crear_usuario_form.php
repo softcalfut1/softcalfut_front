@@ -53,8 +53,6 @@ include('../../components/head.php');
                         <?php
                         $title = "Crear Usuario";
                         include '../../components/header.php';
-                        ?>
-                        <?php
                         $isEditMode = false;
                         echo Formulario::generarFormulario('crear_usuario.php', $data, 'formulario-crear', $isEditMode);
                         ?>

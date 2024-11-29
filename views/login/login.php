@@ -22,29 +22,31 @@ $menuItems = [
     ['name' => 'Escuela LFC', 'url' => 'escuela.php', 'faIcon' => 'fa-school', 'svgIcon' => '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2 2 5-5 5 5 5-5 2 2-7 7-2-2-3 3-3-3-2 2-7-7z"/></svg>'],
     ['name' => 'Mi Club', 'url' => 'views/mi-club.php', 'faIcon' => 'fa-user', 'svgIcon' => '<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2 2 5-5 5 5 5-5 2 2-7 7-2-2-3 3-3-3-2 2-7-7z"/></svg>']
 ];
+
 $titleHead = "Iniciar sesion";
+// Incluir el formulario
+include '../../components/formulario.php';
 
 include('../../components/head.php');
+
+$data = [
+    ['type' => 'text', 'name' => 'documento', 'label' => 'Documento', 'required' => true],
+    ['type' => 'password', 'name' => 'pass', 'label' => 'Contraseña', 'required' => true]
+];
 ?>
 <body class="bg-gray-100">
     <?php include '../../components/nav.php'; ?>
 
-    <div class="flex justify-center items-center h-screen">
+    <div class="flex justify-center items-center">
         <div class="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-
-            <form action="login_controller.php" method="POST">
-                <div class="mb-4">
-                    <label for="documento" class="block text-sm font-medium text-gray-700">Documento</label>
-                    <input type="text" name="documento" id="documento" class="w-full mt-1 p-2 border border-gray-300 rounded-md" required>
-                </div>
-
-                <div class="mb-4">
-                    <label for="pass" class="block text-sm font-medium text-gray-700">Contraseña</label>
-                    <input type="password" name="pass" id="pass" class="w-full mt-1 p-2 border border-gray-300 rounded-md" required>
-                </div>
-
-                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700">Entrar</button>
-            </form>
+        <?php
+        $title = "Iniciar sesion";
+        include '../../components/header.php';
+        ?>
+        <?php
+        $isEditMode = false; 
+        echo Formulario::generarFormulario('login_controller.php', $data, 'formulario-actualizar', $isEditMode);
+        ?>
         </div>
     </div>
 
